@@ -14,20 +14,8 @@ Computational analyses require methods and notes to be recorded the same way you
 
 In this first worksheet, you will learn how to do some basic markdown editing in addition to the basic use of variables and functions in R. After you have made a change to the document, press "Knit HTML" in R Studio and see what kind of a result you get. **Note:** You may have to disable pop-ups to get this to work.
 
----------------------------------------------
 
-## Section 1. Basic Markdown
-
-Try out basic R Markdown features, as described [here.](http://rmarkdown.rstudio.com/authoring_basics.html) 
-
-1. Write some text that is bold, and some that is in italics. 
-2. Make a numbered list and a bulleted list.
-3. Make a nested list. 
-4. Try the block-quote feature.
-
---Try your Markdown syntax here--
-
-## Section 2. Embedding R code
+## Section 1. Embedding R code
 
 R code embedded in R chunks will be executed and the output will be shown.
 ```{r section 2 variables}
@@ -47,32 +35,32 @@ Play around with some basic R code, trying the following:
 5. Combine the two vectors you created in the previous step into one data frame.
 6. Call the first column of the data frame that you create.
 
-```{r section 2 assignments}
+```{r section 1 assignments}
 #your code here
 ```
 
-## Section 3. Built-in functions and data sets
+## Section 2. Built-in functions and data sets
 
 A function is statement internally (i.e., "under the hood") coded to perform a specific task. For instance, the `head()` function displays the first several rows of a data frame or values in a vector.
 
 R comes with many built-in functions and data sets. Type `data()` in the console to look at a list of all available data sets. Type `?iris` in the console for more information about this specific data set. You can take a glance at the `iris` data set using the `head()` function. Run the code chunk below to test this. 
 
-```{r section 3 functions}
+```{r section 2 functions}
 # preview the first few rows a data frame
 ```
 
 You can also use the `summary()` function to see the summary statistics of a data set at a glance. Try this now with the `iris` data set.
-```{r section 3 summary}
+```{r section 2 summary}
 # your R code here
 ```
 
 You can see the column names of `iris` from the code output above. Calculate the mean of the `Petal.Length` column using the `mean()` function. Calculate the range of the `Petal.Width` column using the `range()` function. **Hint:** call the columns the same way you did in Part 2 of the worksheet.
 
-```{r section 3 exploratory statistics}
+```{r section 2 exploratory statistics}
 # your R code here
 ```
 
-## Section 4. Reading, writing and locating files
+## Section 3. Reading, writing and locating files
 
 There are several ways to upload data into your R environment. We covered one way in Part 1 of the worksheet: manual entry. However, this is clearly not feasible for big data sets--more often, we want to read in a file containing our data. Also, we tend to modify data frames and save them to a new file. 
 
@@ -89,13 +77,13 @@ __Important: The file name must be given to the function as a string.__
 
 **Note:** If you are coding on a local installation of R, you will have to specify a path to the location of the file or move the file to the working directory. Local installations of R do now have an "Upload" function. These concepts are covered at the end of this section.
 
-```{r section 4 reading and writing data}
+```{r section 3 reading and writing data}
 # your R code here
 ```
 
 For this class, we are using a computer server where everyone has a preset working directory associated with your unique student ID number. Type `getwd()` to see the file path to your working directory. On a local installation, the output of this function might look something like `C:/Users/alex/Documents/`.
 
-```{r section 4 get working directory}
+```{r section 3 get working directory}
 # your R code here
 ```
 
@@ -109,17 +97,17 @@ This is the directory R will default to for reading and writing files. Ideally, 
 6. Run #5 again, but this time specify that `full.names = TRUE` as the second argument in the function.
 
 
-```{r section 4 mushroom import}
+```{r section 3 mushroom import}
 #perform import steps above
 ```
 
 Clear your global environment (the broom symbol in the top right window). Read the file in the sub-directory "day1_data" using `read_csv`. The function will need the full path given by the output from the code chunk above.
 
-```{r section 4 read in data}
+```{r section 3 read in data}
 # your R code here
 ```
 
-##Section 5. Tidying data example
+##Section 4. Tidying data example
 
 In the lecture slides, I show examples of how to use `pivot_longer()` and `pivot_wider()` to tidy an unruly dataset. Here is the code to do so:
 
@@ -163,7 +151,7 @@ Sitka %>%
 ```
 
 
-## Section 6. Row/column addition (`mutate()`, `bind_rows()`, `left_join()`)
+## Section 5. Row/column addition (`mutate()`, `bind_rows()`, `left_join()`)
 
 The raw output from many types of high-throughput molecular biology experiments comes a unique sample ID (e.g., protein ID, gene ID) and that samples raw output response. (e.g., peptide abundance via mass spectrometry experiments, mRNA abundance via RNA-seq). Often we would like to accomplish the following:
 
@@ -186,28 +174,28 @@ head(frog_heatr2)
 ```
 
 
-### Section 6.1 Adding a new column
+### Section 5.1 Adding a new column
 
 For each APMS data frame, use `mutate()` to add a new column named `bait` that contains a string naming the bait used in that experiment. For instance, the `frog_dnai2` data frame should have a new column simply reading "dnai2" for each row in the new column. 
 
 The purpose of this is to prepare the data frames to be bound together; without this new column, we would not know observation belongs to which experiment once the data frames are combined.
 
-```{r 6.1 mutate}
+```{r 5.1 mutate}
 # your R code here
 ```
 
-### Section 6.2 Binding two experiments together
+### Section 5.2 Binding two experiments together
 
 Now, using `bind_rows()` combine the two new data frames together.
 
-```{r 6.2 bind_rows}
+```{r 5.2 bind_rows}
 # your R code here
 ```
 
 Another valid way to do this is with `rbind()`; the difference is that `rbind()` requires data frames with absolutely identifical column names to ensure a clean concatenation, whereas `bind_rows()` isn't so picky.
 
 
-### Section 6.3 Joining an experiment table with an annotation table
+### Section 5.3 Joining an experiment table with an annotation table
 
 Now we have a data frame that contains protein interaction data for both dnai2 and heatr2, but the actual identifiers in the `ID` are not informative. To investigate the interacting biology, we need to join an annotation table to the APMS data frame. 
 
@@ -221,13 +209,13 @@ head(frog_annotations)
 
 Note that the annotation data frame has an `ID` column that matches the `ID` column in the APMS data frame. Also notice that the annotation data frame has 14292 rows, and our APMS data frame has 3356 rows. The `left_join()` function keeps all the rows from the data frame used as the "left" input, while joining in places that match the common column (`ID` in this case) to the right data frame. Use `left_join()` to combine the APMS data frame with the annotation data frame, such that the final data frame has 3356 rows and 12 columns.
 
-```{r 6.3 left_joining}
+```{r 5.3 left_joining}
 # your R code here
 ```
 
 Now each observation is connected to a *X. laevis* gene name, in addition to the gene's human cousin. Not all genes have annotations, even though *X. laevis* is considered a model organism. This is common in bioinformatics.
 
-## Section 7. Subsetting data (`filter()`, `select()`)
+## Section 6. Subsetting data (`filter()`, `select()`)
 
 In biological data analysis, we're often most interested in a specific subset of data--usually scores above some threshold (p-values, z-scores, fold changes in gene expression) or the behavior of a specific gene/protein family relative to time or different conditions..
 
@@ -239,15 +227,15 @@ Perform the following operations to pare down the combined APMS data frame. Use 
 
 3. Finally, again in the same line of code, pipe (`%>%`) into `arrange()` to re-sort the data frame to descend by `PSM_zscore` (i.e., highest z-scores should be at the top).
 
-```{r 7.0 filtering and selecting}
+```{r 6.0 filtering and selecting}
 # your R code here
 ```
 
-## Section 8. Aggregating data (`group_by()`, `summarize()`, `arrange()`)
+## Section 7. Aggregating data (`group_by()`, `summarize()`, `arrange()`)
 
 To find broad patterns in big data sets, we can use the `group_by()` and `summarize()` functions to get summary information for groups of variables. For instance, the `bait` column has two groups: dnai2 and heatr2. The `OG_category_annotations` column has 22 groups if you count the "NA" values resulting from unannotated genes. Use dataframe created in section #2 and the functions `select()` and `unique()` to look at the unique values (groups) in the columns `bait` and `OG_category_annotation` 
 
-```{r 8.0 group_by and summarize}
+```{r 7.0 group_by and summarize}
 # your R code here
 ```
 
@@ -260,7 +248,7 @@ We want to learn the functional categories for the proteins that are most signfi
     - `sum(PSM_zscore)/sqrt(length(PSM_zscore))` # sum of all z-scores divided by the number of observations per group
 3. Use `arrange()` to sort the data frame by `bait` and then by `joint_zscore` to get top hits.
 
-```{r 8.0 aggregating data}
+```{r 7.0 aggregating data}
 # your R code here
 ```
 
@@ -270,7 +258,7 @@ Using the summary data you just created, plot a bar chart for the functional cat
 # your R code here
 ```
 
-## Section 9. If that was easy...
+## Section 8. If that was easy...
 
 **Bonus challenge:** Take the sepal lengths from the `iris` data set and put them into a wide table so that is one data column per species. You might be tempted to do this with the following code, which however doesn't work. Can you figure out why? 
 
