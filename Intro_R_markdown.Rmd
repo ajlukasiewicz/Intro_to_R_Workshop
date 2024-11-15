@@ -107,6 +107,7 @@ Clear your global environment (the broom symbol in the top right window). Read t
 # your R code here
 ```
 
+---------------------------------------BREAK------------------------------------
 ##Section 4. Tidying data example
 
 In the lecture slides, I show examples of how to use `pivot_longer()` and `pivot_wider()` to tidy an unruly dataset. Here is the code to do so:
@@ -249,12 +250,6 @@ We want to learn the functional categories for the proteins that are most signfi
 3. Use `arrange()` to sort the data frame by `bait` and then by `joint_zscore` to get top hits.
 
 ```{r 7.0 aggregating data}
-# your R code here
-```
-
-Using the summary data you just created, plot a bar chart for the functional categories, but this time put z-score on the y-axis instead of counts. Since you're specifying the `y = ` argument, you'll have to use `geom_col()` instead of `geom_bar()`.
-
-```{r fig.width=6}
 # your R code here
 ```
 
