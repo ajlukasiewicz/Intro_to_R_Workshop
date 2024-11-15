@@ -1,4 +1,4 @@
-class,cap_shape,cap_surface,cap_color,odor,gill_spacing,gill_size,gill_color,stalk_shape,stalk_root,veil_type,veil_color,ring_number,ring_type,spore_print_color,population,habitat
+﻿class,cap_shape,cap_surface,cap_color,odor,gill_spacing,gill_size,gill_color,stalk_shape,stalk_root,veil_type,veil_color,ring_number,ring_type,spore_print_color,population,habitat
 poisonous,convex,smooth,brown,pungent,close,narrow,black,enlarging,equal,partial,white,1,pendant,black,scattered,urban
 edible,convex,smooth,yellow,almond,close,broad,black,enlarging,club,partial,white,1,pendant,brown,numerous,grasses
 edible,bell,smooth,white,anise,close,broad,brown,enlarging,club,partial,white,1,pendant,brown,numerous,meadows
